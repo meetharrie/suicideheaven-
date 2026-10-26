@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Haven - Discover & Distract</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f7f6; margin: 0; padding: 0; }
+        .crisis-banner { background-color: #d9534f; color: white; padding: 15px; font-weight: bold; font-size: 1.1em; }
+        .crisis-banner a { color: #fff; text-decoration: underline; margin-left: 10px; }
+        .container { padding: 20px; max-width: 800px; margin: auto; }
+        .btn-group button { background-color: #5cb85c; color: white; border: none; padding: 12px 24px; margin: 5px; font-size: 16px; cursor: pointer; border-radius: 4px; }
+        .btn-group button:hover { background-color: #4cae4c; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- CRITICAL CRISIS BANNER -->
+    <div class="crisis-banner">
+        If you or someone you know is struggling, please know you are not alone. Help is available 24/7.
+        <a href="https://findahelpline.com" target="_blank">Find a Free Local Helpline</a> or contact a suicide and crisis hotline.
+    </div>
+
+    <div class="container">
+        <h1>Find Your Spark</h1>
+        <p>Take a deep breath. Explore different categories below to discover new ideas, hobbies, and styles at your own pace.</p>
+        
+        <div class="btn-group">
+            <button onclick="loadCategory('sports')">🏆 Explore Sports</button>
+            <button onclick="loadCategory('hobbies')">🎨 Explore Hobbies</button>
+            <button onclick="loadCategory('clothes')">👕 Explore Styles & Clothes</button>
+        </div>
+
+        <div class="gallery" id="imageGallery">
+            <!-- Dynamic images display here -->
+        </div>
+    </div>
+
+    <script>
+        // Placeholder images representing categories (Replace URLs with real high-quality images)
+        const imageData = {
+            sports: [
+                "https://unsplash.com", // Basketball
+                "https://unsplash.com"  // Cycling
+            ],
+            hobbies: [
+                "https://unsplash.com", // Painting
+                "https://unsplash.com"  // Hiking
+            ],
+            clothes: [
+                "https://unsplash.com", // Fashion
+                "https://unsplash.com"  // Clothes
+            ]
+        };
+
+        function loadCategory(category) {
+            const gallery = document.getElementById('imageGallery');
+            gallery.innerHTML = ""; // Clear current images
+            
+            // Loop through selected category array
+            imageData[category].forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = category;
+                gallery.appendChild(img);
+            });
+        }
+
+        // Initialize with sports category on load
+        window.onload = () => loadCategory('sports');
+    </script>
+</body>
+</html>
